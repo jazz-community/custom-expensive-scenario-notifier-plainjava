@@ -1,0 +1,2 @@
+esn https://clm.example.com:9443/ccm/ myadmin myadmin start TestScenario
+esn https://clm.example.com:9443/ccm/ myadmin myadmin stop TestScenario

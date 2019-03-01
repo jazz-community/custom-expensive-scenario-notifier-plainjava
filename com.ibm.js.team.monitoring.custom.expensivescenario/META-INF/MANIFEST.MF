@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Clustertest
+Bundle-SymbolicName: com.ibm.js.team.monitoring.custom.expensivescenario
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: IBM
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ com.ibm.team.repository.common,
+ com.ibm.team.repository.common.json,
+ com.ibm.team.repository.client
+Automatic-Module-Name: com.ibm.js.team.monitoring.custom.expensivescenario
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7,
+ JavaSE-1.8

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ExpensiveScenarioPlainJavaService
+Bundle-SymbolicName: com.ibm.js.team.monitoring.custom.service.expensivescenario
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: IBM
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.ibm.team.repository.common,
+ com.ibm.team.repository.common.json,
+ com.ibm.team.repository.client,
+ org.apache.commons.io
+Automatic-Module-Name: com.ibm.js.team.monitoring.custom.expensivescenario
+Export-Package: com.ibm.js.team.monitoring.custom.service.expensivescenario;uses:="com.ibm.team.repository.client"
