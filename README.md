@@ -6,7 +6,7 @@ Documentation under construction.
 	Syntax : [publicURI] [userId] [password] start [scenarionName]
 	Syntax : [publicURI] [userId] [password] stop [scenarionName]
   
-	Example: https://clm.example.com:9443/ccm/ ADMIN ****** -scenarioName start MyCustomExpensiveScenario
-	Example: https://clm.example.com:9443/ccm/ ADMIN ****** -scenarioName stop MyCustomExpensiveScenario
+	Example: https://clm.example.com:9443/ccm/ ADMIN ****** start MyCustomExpensiveScenario
+	Example: https://clm.example.com:9443/ccm/ ADMIN ****** stop MyCustomExpensiveScenario
 
 It might be necessary to change the login process to log into applications other than ccm. 
