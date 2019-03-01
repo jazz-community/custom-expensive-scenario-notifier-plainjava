@@ -18,7 +18,7 @@ import java.nio.file.Paths;
  * The information to stop the expensive scenario is persisted as a file.
  *
  */
-public class FilePersitentExpensiveScenarioService {
+public class FilePersitentExpensiveScenarioService implements IPersistedExpensiveScenarioService {
 
 	public static final String SCENARIO_RESPONSE_FILE_EXTENSION = ".json";
 	public static final String SCENARIO_RESPONSE_FILE_PATH_ROOT_FOLDER = "./";
@@ -42,12 +42,10 @@ public class FilePersitentExpensiveScenarioService {
 	}
 
 
-	/**
-	 * Start the custom expensive scenario.
-	 * Store the request response data in a file to persist it.
-	 *  
-	 * @throws Exception
+	/* (non-Javadoc)
+	 * @see com.ibm.js.team.monitoring.custom.service.expensivescenario.IPersistedExpensiveScenarioService#start()
 	 */
+	@Override
 	public void start() throws Exception {
 		String responseString = fExpensiveScenarioService.start();
 		FileWriter fileWriter = new FileWriter(getScenarioResponseFileName());
@@ -55,12 +53,10 @@ public class FilePersitentExpensiveScenarioService {
 		fileWriter.close();
 	}
 
-	/**
-	 * Stop the custom expensive scenario.
-	 * Read the request response data from a file that persists it.
-	 * 
-	 * @throws Exception
+	/* (non-Javadoc)
+	 * @see com.ibm.js.team.monitoring.custom.service.expensivescenario.IPersistedExpensiveScenarioService#stop()
 	 */
+	@Override
 	public void stop()
 			throws Exception {
 		Path path = Paths.get(getScenarioResponseFileName());

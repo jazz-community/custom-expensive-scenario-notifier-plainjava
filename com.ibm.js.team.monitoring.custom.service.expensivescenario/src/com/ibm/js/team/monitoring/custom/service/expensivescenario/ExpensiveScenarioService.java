@@ -204,13 +204,13 @@ public class ExpensiveScenarioService implements IExpensiveScenarioService {
 		IExpensiveScenarioService service= new ExpensiveScenarioService(teamRepository, publicURI, scenarioName);
 	
 		if (START_COMMAND.equals(startStop)) {
-			FilePersitentExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
+			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
 			expensiveScenario.start();
 		} else if (STOP_COMMAND.equals(startStop)) {
-			FilePersitentExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
+			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
 			expensiveScenario.stop();
 		} else if (DEBUG_FILE_COMMAND.equals(startStop)) {
-			FilePersitentExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
+			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
 			expensiveScenario.start();
 			expensiveScenario.stop();
 		} else if (DEBUG_NOFILE_COMMAND.equals(startStop)) {
