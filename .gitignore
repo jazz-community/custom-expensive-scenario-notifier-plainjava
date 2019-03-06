@@ -1,2 +1,8 @@
 
 *.class
+com.ibm.js.team.monitoring.custom.expensivescenario/Launches/ExpensiveScenarioNotifier - TestScenario CCM JAS start.launch
+com.ibm.js.team.monitoring.custom.expensivescenario/Launches/ExpensiveScenarioNotifier - TestScenario CCM JAS stop.launch
+com.ibm.js.team.monitoring.custom.expensivescenario/Launches/ExpensiveScenarioNotifier - TestScenario QM JAS start.launch
+com.ibm.js.team.monitoring.custom.expensivescenario/Launches/ExpensiveScenarioNotifier - TestScenario QM JAS stop.launch
+com.ibm.js.team.monitoring.custom.expensivescenario/Launches/ExpensiveScenarioNotifier - TestScenario RM JAS start.launch
+com.ibm.js.team.monitoring.custom.expensivescenario/Launches/ExpensiveScenarioNotifier - TestScenario RM JAS stop.launch
