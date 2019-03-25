@@ -190,34 +190,4 @@ public class ExpensiveScenarioService implements IExpensiveScenarioService {
 	public Object getScenarioName() {
 		return fScenarioName;
 	}
-
-	/**
-	 * @param teamRepository
-	 * @param publicURI
-	 * @param scenarioName
-	 * @param startStop
-	 * @throws URISyntaxException
-	 * @throws Exception
-	 */
-	public static void runService(ITeamRepository teamRepository, final String publicURI, final String scenarioName,
-			final String startStop) throws URISyntaxException, Exception {
-		IExpensiveScenarioService service= new ExpensiveScenarioService(teamRepository, publicURI, scenarioName);
-	
-		if (START_COMMAND.equals(startStop)) {
-			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
-			expensiveScenario.start();
-		} else if (STOP_COMMAND.equals(startStop)) {
-			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
-			expensiveScenario.stop();
-		} else if (DEBUG_FILE_COMMAND.equals(startStop)) {
-			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
-			expensiveScenario.start();
-			expensiveScenario.stop();
-		} else if (DEBUG_NOFILE_COMMAND.equals(startStop)) {
-			String startRequestResponse = service.start();
-			service.stop(startRequestResponse);
-		} else {
-			throw new Exception("Unknown Command Exceptioen '" + startStop + "'");
-		}
-	}
 }

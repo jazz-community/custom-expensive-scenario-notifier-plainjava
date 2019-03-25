@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
-import com.ibm.js.team.monitoring.custom.service.expensivescenario.ExpensiveScenarioService;
+import com.ibm.js.team.monitoring.custom.service.expensivescenario.RegisterScenarioExample;
 import com.ibm.team.repository.client.ITeamRepository;
 import com.ibm.team.repository.client.ITeamRepository.ILoginHandler;
 import com.ibm.team.repository.client.ITeamRepository.ILoginHandler.ILoginInfo;
@@ -96,7 +96,7 @@ public class ExpensiveScenarioNotifier {
 		IProgressMonitor monitor = new NullProgressMonitor();
 		teamRepository.registerLoginHandler(new LoginHandler(userId, password));
 		teamRepository.login(monitor);		
-		ExpensiveScenarioService.runService(teamRepository, teamRepository.getRepositoryURI(), scenarioName, startStop);
+		RegisterScenarioExample.runService(teamRepository, teamRepository.getRepositoryURI(), scenarioName, startStop);
 		teamRepository.logout();
 		return true;
 	}
