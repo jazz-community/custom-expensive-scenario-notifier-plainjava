@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2015-2019 IBM Corporation
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ * 
+ *******************************************************************************/
 package com.ibm.js.team.monitoring.custom.service.expensivescenario;
 
 import java.net.URISyntaxException;
@@ -5,6 +12,36 @@ import java.net.URISyntaxException;
 import com.ibm.team.repository.client.ITeamRepository;
 
 public class RegisterScenarioExample {
+
+	/**
+	 * Examples of how to use the services
+	 * 
+	 * @param teamRepository
+	 * @param scenarioName
+	 * @throws URISyntaxException
+	 * @throws Exception
+	 */
+	public static void serviceWorkflow(ITeamRepository teamRepository, final String scenarioName)
+			throws URISyntaxException, Exception {
+
+		// Simple scenario persisted in String
+		IExpensiveScenarioService service = new ExpensiveScenarioService(teamRepository,
+				teamRepository.getRepositoryURI(), scenarioName);
+		String scenarioInstance = service.start();
+		//
+		// TODO: Your Code goes here
+		//
+		service.stop(scenarioInstance);
+
+		// Example with file persistence
+		IPersistedExpensiveScenarioService persistedService = new FilePersitentExpensiveScenarioService(
+				new ExpensiveScenarioService(teamRepository, teamRepository.getRepositoryURI(), scenarioName));
+		persistedService.start();
+		//
+		// TODO: Your Code goes here
+		//
+		persistedService.stop();
+	}
 
 	/**
 	 * @param teamRepository
@@ -16,10 +53,11 @@ public class RegisterScenarioExample {
 	 */
 	public static void runService(ITeamRepository teamRepository, final String publicURI, final String scenarioName,
 			final String startStop) throws URISyntaxException, Exception {
-		IExpensiveScenarioService service= new ExpensiveScenarioService(teamRepository, publicURI, scenarioName);
-	
+
+		IExpensiveScenarioService service = new ExpensiveScenarioService(teamRepository, publicURI, scenarioName);
+
 		if (ExpensiveScenarioService.START_COMMAND.equals(startStop)) {
-			System.out.println("Start Scenario...");			
+			System.out.println("Start Scenario...");
 			IPersistedExpensiveScenarioService expensiveScenario = new FilePersitentExpensiveScenarioService(service);
 			expensiveScenario.start();
 		} else if (ExpensiveScenarioService.STOP_COMMAND.equals(startStop)) {
