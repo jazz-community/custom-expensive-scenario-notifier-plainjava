@@ -25,8 +25,7 @@ public class RegisterScenarioExample {
 			throws URISyntaxException, Exception {
 
 		// Simple scenario persisted in String
-		IExpensiveScenarioService service = new ExpensiveScenarioService(teamRepository,
-				teamRepository.getRepositoryURI(), scenarioName);
+		IExpensiveScenarioService service = new ExpensiveScenarioService(teamRepository, scenarioName);
 		String scenarioInstance = service.start();
 		//
 		// TODO: Your Code goes here
@@ -35,7 +34,7 @@ public class RegisterScenarioExample {
 
 		// Example with file persistence
 		IPersistedExpensiveScenarioService persistedService = new FilePersitentExpensiveScenarioService(
-				new ExpensiveScenarioService(teamRepository, teamRepository.getRepositoryURI(), scenarioName));
+				new ExpensiveScenarioService(teamRepository, scenarioName));
 		persistedService.start();
 		//
 		// TODO: Your Code goes here
