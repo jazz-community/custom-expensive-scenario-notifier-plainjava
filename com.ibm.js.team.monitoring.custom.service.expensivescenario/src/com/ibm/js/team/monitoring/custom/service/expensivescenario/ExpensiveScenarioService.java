@@ -114,12 +114,12 @@ public class ExpensiveScenarioService implements IExpensiveScenarioService {
 		try {
 			// Compose the request body
 			String body = "{\"" + SCENARIO_NAME + "\"" + ":" + "\"" + fScenarioName + "\"}";
-			byte[] data = body.getBytes(IContent.ENCODING_UTF_8);
 
 			// Get the connection
 			URI startUri = getServiceURI(EXPENSIVE_SCENARIO_START_PATH);
 			IRawRestClientConnection connection = fTeamRepository.getRawRestServiceClient().getConnection(startUri);
-
+			// Encode the start request
+			byte[] data = body.getBytes(IContent.ENCODING_UTF_8);
 			InputStream content = new ByteArrayInputStream(data);
 			// Request JSON to make parsing easier
 			connection.addRequestHeader(ACCEPT_HEADER, APPLICATION_JSON);
@@ -182,10 +182,16 @@ public class ExpensiveScenarioService implements IExpensiveScenarioService {
 			// Create the stop request
 			URI stopUri = getServiceURI(EXPENSIVE_SCENARIO_STOP_PATH);
 			IRawRestClientConnection connection = fTeamRepository.getRawRestServiceClient().getConnection(stopUri);
-			connection.addRequestHeader(ACCEPT_HEADER, APPLICATION_JSON);
+			
+		    // create the request content
 			byte[] data = startRequest.getBytes(IContent.ENCODING_UTF_8);
 			InputStream content = new ByteArrayInputStream(data);
+
+			// Request JSON to make parsing easier
+			connection.addRequestHeader(ACCEPT_HEADER, APPLICATION_JSON);
 			connection.doPost(content, data.length, APPLICATION_JSON);
+
+			// process the result
 			response = connection.getResponse();
 			int status = response.getStatusCode();
 			if (status == 200) {

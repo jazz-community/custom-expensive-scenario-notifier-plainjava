@@ -28,7 +28,7 @@ public class RegisterScenarioExample {
 		IExpensiveScenarioService service = new ExpensiveScenarioService(teamRepository, scenarioName);
 		String scenarioInstance = service.start();
 		//
-		// TODO: Your Code goes here
+		// TODO: Your code goes here
 		//
 		service.stop(scenarioInstance);
 
@@ -37,7 +37,7 @@ public class RegisterScenarioExample {
 				new ExpensiveScenarioService(teamRepository, scenarioName));
 		persistedService.start();
 		//
-		// TODO: Your Code goes here
+		// TODO: Your code goes here
 		//
 		persistedService.stop();
 	}
