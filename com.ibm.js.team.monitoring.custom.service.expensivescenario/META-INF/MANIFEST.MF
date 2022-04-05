@@ -11,3 +11,4 @@ Require-Bundle: com.ibm.team.repository.common,
  org.apache.commons.io
 Automatic-Module-Name: com.ibm.js.team.monitoring.custom.expensivescenario
 Export-Package: com.ibm.js.team.monitoring.custom.service.expensivescenario;uses:="com.ibm.team.repository.client"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
